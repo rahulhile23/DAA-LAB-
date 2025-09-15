@@ -1,0 +1,35 @@
+
+#include <iostream>
+using namespace std;
+
+void func(int a,int b){
+    a=a+2;
+    b=b+2;
+    cout<<a<<" "<<b<<endl;
+}
+
+void funcwithpointer(int *a,int* b){
+     *a=*a+5;
+     *b=*b+5;
+    cout<<*a<<" "<<*b<<endl;
+}
+
+int main() {
+    int a = 10;
+    int b = 20;
+   
+    cout<<"Call By Value"<<endl;
+    func(a,b);
+    cout<<"In Main Function"<<endl;
+    cout << a << endl;      
+    cout << b << endl<<endl;      
+   
+   
+    cout<<"Call By Reference"<<endl;
+    funcwithpointer(&a,&b);
+    cout<<"In Main Function"<<endl;
+    cout << a << endl;      
+    cout << b << endl;
+    return 0;
+
+}
