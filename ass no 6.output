@@ -1,0 +1,18 @@
+OUTPUT :
+Enter the number of items : 5
+Enter the truck capacity : 150
+Enter the weight and utility of each item:
+Item 1 - Weight: 15
+Item 1 - Utility: 26
+Item 2 - Weight: 26
+Item 2 - Utility: 30
+Item 3 - Weight: 24
+Item 3 - Utility: 39
+Item 4 - Weight: 45
+Item 4 - Utility: 99
+Item 5 - Weight: 105
+Item 5 - Utility: 165
+Maximum utility that can be carried: 264
+Items chosen :
+Item 5 - Weight: 105 Utility: 165
+Item 4 - Weight: 45 Utility: 99
