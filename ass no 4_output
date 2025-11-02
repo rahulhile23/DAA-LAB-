@@ -21,4 +21,3 @@ Enter road to update travel time (u v new_time), or -1 to skip: 2 4 1
 After traffic update:
 Nearest hospital: 4 (Travel time: 5 minutes)
 Optimal path: 0 1 2 4
-PS C:\Users\Shivanjali\OneDrive\Desktop\THIRD YEAR\DAA> 
