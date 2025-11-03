@@ -5,12 +5,12 @@ NAME : RAHUL DHANAJI HILE
 import java.util.*;
 
 class Node implements Comparable<Node> {
-    int level;             
-    int pathCost;          
-    int reducedCost;       
-    int vertex;            
-    List<Integer> path;    
-    int[][] reducedMatrix; 
+    int level;
+    int pathCost;
+    int reducedCost;
+    int vertex;
+    List<Integer> path;
+    int[][] reducedMatrix;
 
     Node(int n) {
         reducedMatrix = new int[n][n];
@@ -23,20 +23,18 @@ class Node implements Comparable<Node> {
     }
 }
 
-public class Assignmnet8_DAA{
-    static final int INF = 9999999;
+public class Assignment8_DAA {
+    static final int INF = Integer.MAX_VALUE / 2;
 
-    
     static void copyMatrix(int[][] src, int[][] dest) {
         for (int i = 0; i < src.length; i++)
-            System.arraycopy(src[i], 0, dest[i], 0, src.length);
+            System.arraycopy(src[i], 0, dest[i], 0, src[i].length);
     }
 
-    
     static int reduceMatrix(int[][] matrix, int n) {
         int reductionCost = 0;
 
-
+        // Row reduction
         for (int i = 0; i < n; i++) {
             int rowMin = INF;
             for (int j = 0; j < n; j++)
@@ -51,7 +49,7 @@ public class Assignmnet8_DAA{
             }
         }
 
-      
+        // Column reduction
         for (int j = 0; j < n; j++) {
             int colMin = INF;
             for (int i = 0; i < n; i++)
@@ -65,22 +63,22 @@ public class Assignmnet8_DAA{
                         matrix[i][j] -= colMin;
             }
         }
+
         return reductionCost;
     }
 
-   
     static Node createNode(int[][] parentMatrix, List<Integer> path, int level, int i, int j, int n) {
         Node node = new Node(n);
         copyMatrix(parentMatrix, node.reducedMatrix);
 
-        
+        // Invalidate row i and column j
         for (int k = 0; level != 0 && k < n; k++)
             node.reducedMatrix[i][k] = INF;
 
         for (int k = 0; k < n; k++)
             node.reducedMatrix[k][j] = INF;
 
-    
+        // Prevent returning to starting city prematurely
         if (level + 1 < n)
             node.reducedMatrix[j][0] = INF;
 
@@ -91,7 +89,6 @@ public class Assignmnet8_DAA{
         return node;
     }
 
-    
     static void solveTSP(int[][] costMatrix, int n) {
         PriorityQueue<Node> pq = new PriorityQueue<>();
 
@@ -116,12 +113,12 @@ public class Assignmnet8_DAA{
             int i = min.vertex;
 
             if (min.level == n - 1) {
-               
-                min.path.add(0);
+                List<Integer> tempPath = new ArrayList<>(min.path);
+                tempPath.add(0);
                 int totalCost = min.pathCost + costMatrix[i][0];
                 if (totalCost < minCost) {
                     minCost = totalCost;
-                    finalPath = new ArrayList<>(min.path);
+                    finalPath = tempPath;
                 }
                 continue;
             }
