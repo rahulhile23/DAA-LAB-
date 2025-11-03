@@ -1,3 +1,6 @@
+name : RAHUL DHANAJI HILE 
+    PRN NO : 123B1F031
+
 
 /*
 Design and implement a sorting algorithm using Merge Sort to efficiently arrange customer
